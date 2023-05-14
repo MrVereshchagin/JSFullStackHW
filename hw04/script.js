@@ -110,3 +110,55 @@ console.log(myList.search(25)); // { value: 25, prev: { value: 10, prev: [Object
 myList.remove(10);
 console.log(myList.length); // 3
 console.log(myList.search(10)); // null
+
+
+class List {
+  constructor() {
+    this.items = [];
+  }
+
+  add(item) {
+    this.items.push(item);
+  }
+
+  remove(item) {
+    const index = this.items.indexOf(item);
+    if (index !== -1) {
+      this.items.splice(index, 1);
+    }
+  }
+
+  search(item) {
+    const index = this.items.indexOf(item);
+    return index !== -1;
+  }
+
+  change(oldItem, newItem) {
+    const index = this.items.indexOf(oldItem);
+    if (index !== -1) {
+      this.items[index] = newItem;
+    }
+  }
+
+  get length() {
+    return this.items.length;
+  }
+}
+
+const newList = new List();
+
+newList.add('apple');
+newList.add('banana');
+newList.add('orange');
+
+console.log(newList.search('banana')); // true
+console.log(newList.search('pear')); // false
+
+newList.remove('banana');
+console.log(newList.search('banana')); // false
+
+newList.change('apple', 'pineapple');
+console.log(newList.search('apple')); // false
+console.log(newList.search('pineapple')); // true
+
+console.log(newList.length); // 2
