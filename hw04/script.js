@@ -1,3 +1,4 @@
+// Make a doudly linked list
 class DoublyLinkedList {
   constructor() {
     this.head = null;
@@ -112,6 +113,7 @@ console.log(myList.length); // 3
 console.log(myList.search(10)); // null
 
 
+// Make a list class
 class List {
   constructor() {
     this.items = [];
