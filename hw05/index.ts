@@ -1,3 +1,4 @@
+// Make class of double linked list in TS
 class DoublyLinkedList<T> {
   private head: { value: T; prev: DoublyLinkedNode<T> | null; next: DoublyLinkedNode<T> | null } | null = null;
   private tail: { value: T; prev: DoublyLinkedNode<T> | null; next: DoublyLinkedNode<T> | null } | null = null;
@@ -137,5 +138,56 @@ if (node4) {
   console.log(myList.length); // 2
 }
 
+// Make class of list in TS
+class List<T> {
+  private items: T[];
 
+  constructor() {
+    this.items = [];
+  }
 
+  public add(item: T): void {
+    this.items.push(item);
+  }
+
+  public remove(item: T): void {
+    const index = this.items.indexOf(item);
+    if (index !== -1) {
+      this.items.splice(index, 1);
+    }
+  }
+
+  public search(item: T): boolean {
+    const index = this.items.indexOf(item);
+    return index !== -1;
+  }
+
+  public change(oldItem: T, newItem: T): void {
+    const index = this.items.indexOf(oldItem);
+    if (index !== -1) {
+      this.items[index] = newItem;
+    }
+  }
+
+  public get length(): number {
+    return this.items.length;
+  }
+}
+
+const newList = new List<string>();
+
+newList.add('apple');
+newList.add('banana');
+newList.add('orange');
+
+console.log(newList.search('banana')); // true
+console.log(newList.search('pear')); // false
+
+newList.remove('banana');
+console.log(newList.search('banana')); // false
+
+newList.change('apple', 'pineapple');
+console.log(newList.search('apple')); // false
+console.log(newList.search('pineapple')); // true
+
+console.log(newList.length); // 2
