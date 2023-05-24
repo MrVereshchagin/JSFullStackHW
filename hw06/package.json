@@ -1,0 +1,14 @@
+{
+  "name": "hw06",
+  "version": "1.0.0",
+  "description": "- pattern of floydWarshall in JS on the graph;\r - patterns Builder, Proxy and Mediator in Type Script, with example",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.0.4"
+  }
+}
